@@ -1,4 +1,5 @@
-import { Button } from '../../components/button/styles'
+import { Button } from '../../components/Button/styles'
+import DefaultTopBackgound from '../../components/TopBackground'
 
 
 
@@ -8,6 +9,7 @@ function ListUsers(){
 
     return(
         <div>
+            <DefaultTopBackgound/>
             <h1>lista de usuarios</h1>
             <Button>Voltar</Button>
         </div>
@@ -16,6 +18,3 @@ function ListUsers(){
 
 export default ListUsers
 
-/*
-    yarn add react-router-dom -> possibilita as rotas no front end
-*/

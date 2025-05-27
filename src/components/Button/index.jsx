@@ -1,11 +1,10 @@
-import { Button } from "./styles"
+import { TopButton } from "./styles"
 
 
 function DefaultButton(){
 
-
     return(
-        <Button>ok ok</Button>
+        <TopButton>ok ok</TopButton>
     )
 }
 

@@ -4,15 +4,16 @@ import {
     Form,
     Input,
     InputLabel,
-    Title,
-    TopBackground
+    Title
 } from '../Home/styles'
 
-import { Button } from '../../components/button/styles'
+import { Button } from '../../components/Button/styles'
+
+
 
 import { useRef } from 'react'
 import api from '../../services/api'
-import UsersImage from '../../assets/users.png'
+import DefaultTopBackgound from '../../components/TopBackground'
 
 export default function Home() {
     const inputName = useRef()
@@ -27,12 +28,10 @@ export default function Home() {
         })
     }
 
-
     return (
         <Container>
-            <TopBackground>
-                <img src={UsersImage} alt='imagem-usuarios' />
-            </TopBackground>
+
+            <DefaultTopBackgound/>
 
             <Form>
                 <Title>Cadastrar Usuário</Title>
