@@ -31,7 +31,7 @@ export default function Home() {
     return (
         <Container>
 
-            <DefaultTopBackgound/>
+            <DefaultTopBackgound />
 
             <Form>
                 <Title>Cadastrar Usuário</Title>
@@ -61,11 +61,12 @@ export default function Home() {
                     <Input type='email' placeholder='E-mail do usuário' ref={inputEmail} />
                 </div>
 
-                <Button type='button' onClick={registerNewUser}>
+                <Button type='button' onClick={registerNewUser} theme={'primary'}>
                     Cadastrar usuário
                 </Button>
 
             </Form>
+            <Button type='button'>Lista de usuários</Button>
         </Container>
     )
 }
