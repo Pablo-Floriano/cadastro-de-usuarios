@@ -4,14 +4,15 @@ import PropTypes from "prop-types"
 
 function DefaultButton({children, theme, ...props}){
 
-    console.log(children)
     return(
         <TopButton {...props } theme={theme} >{children}</TopButton>
     )
 }
 
 DefaultButton.propTypes = {
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    theme: PropTypes.string
+    
 }
 
 export default DefaultButton

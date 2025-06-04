@@ -7,6 +7,7 @@ import {
     Title
 } from '../Home/styles'
 
+import { useNavigate } from 'react-router-dom'
 import { Button } from '../../components/Button/styles'
 
 
@@ -16,9 +17,12 @@ import api from '../../services/api'
 import DefaultTopBackgound from '../../components/TopBackground'
 
 export default function Home() {
+
     const inputName = useRef()
     const inputAge = useRef()
     const inputEmail = useRef()
+
+    const navigate = useNavigate()
 
     async function registerNewUser() {
         await api.post('/usuarios', {
@@ -26,6 +30,8 @@ export default function Home() {
             age: parseInt(inputAge.current.value),
             name: inputName.current.value,
         })
+
+        navigate('lista-de-usuarios')
     }
 
     return (
@@ -66,7 +72,8 @@ export default function Home() {
                 </Button>
 
             </Form>
-            <Button type='button'>Lista de usuários</Button>
+            <Button type='button' onClick={()=> navigate('/lista-de-usuarios')
+            }>Lista de usuários</Button>
         </Container>
     )
 }
