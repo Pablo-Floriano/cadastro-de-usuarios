@@ -1,34 +1,65 @@
 import { Button } from '../../components/Button/styles'
 import DefaultTopBackgound from '../../components/TopBackground'
 
-import { Container } from './styles'
+import {
+    Container,
+    ContainerUsers,
+    InfoUsers,
+    TrashIcon,
+    UserImg
+} from './styles'
 
 import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import api from '../../services/api'
+import trash from '../../assets/trash.svg'
+import { PageTittle } from '../../components/Tittle'
 
 
-
-function ListUsers(){
+function ListUsers() {
+    const [users, setUsers] = useState([])
 
     useEffect(() => {
 
         async function getUsers() {
-            const UsersFromApi = await api.get('/usuarios')
-            console.log(UsersFromApi)
+            const { data } = await api.get('/usuarios')
+
+            setUsers(data)
         }
         getUsers()
-      
+
     }, [])
-    
+
 
     const navigate = useNavigate()
 
-    return(
+    return (
         <Container>
-            <DefaultTopBackgound/>
-            <h1>lista de usuarios</h1>
-            <Button onClick={()=> navigate('/')}>Voltar</Button>
+
+            <DefaultTopBackgound />
+
+            <PageTittle>Lista de usuários</PageTittle>
+
+            <ContainerUsers>
+
+                {users.map((user) => (
+                    <InfoUsers key={user.id}>
+
+                        <UserImg src={`https://avatar.iran.liara.run/public?username=${user.id}`} />
+
+                        <div >
+                            <p>{user.name}</p>
+                            <p>{user.age}</p>
+                            <p>{user.email}</p>
+                        </div>
+                        <TrashIcon src={trash} />
+                    </InfoUsers>
+
+                ))}
+
+            </ContainerUsers>
+
+            <Button onClick={() => navigate('/')}>Voltar</Button>
         </Container>
     )
 }

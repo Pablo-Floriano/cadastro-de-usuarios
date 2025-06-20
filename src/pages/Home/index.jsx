@@ -15,6 +15,7 @@ import { Button } from '../../components/Button/styles'
 import { useRef } from 'react'
 import api from '../../services/api'
 import DefaultTopBackgound from '../../components/TopBackground'
+import { PageTittle } from '../../components/Tittle'
 
 export default function Home() {
 
@@ -40,7 +41,7 @@ export default function Home() {
             <DefaultTopBackgound />
 
             <Form>
-                <Title>Cadastrar Usuário</Title>
+                <PageTittle> Cadastrar usuário</PageTittle>
 
                 <ContainerInputs>
 

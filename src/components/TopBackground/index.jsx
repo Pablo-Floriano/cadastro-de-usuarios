@@ -7,6 +7,7 @@ function DefaultTopBackgound() {
 
 
     return (
+        
         <TopBackground>
             <img src={UsersImage} alt='imagem-usuarios' />
         </TopBackground>
